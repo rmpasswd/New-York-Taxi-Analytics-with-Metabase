@@ -49,7 +49,7 @@
 
 
 ### Deployment:
-1. To actually deploy it publically, the metabase installation has to be installed in a 'server', be it my own  laptop or an AWS EC2 instance. I was already using it in a docker container. Took a snapshot with `docker commit container_id   rmpasswd/metabase-taxi:1.0` then after making sure I am logged in with `docker login`,  pushed the image to my own docker hub registry with `docker push rmpasswd/metabase-taxi:1.0`.
+1. To actually deploy it publically, the metabase installation has to be installed in a 'server' that is accessible by everyone, be it my own  laptop or an AWS EC2 instance. I was already using it in a docker container. Took a snapshot with `docker commit container_id   rmpasswd/metabase-taxi:1.0` Then after making sure I am logged in with `docker login`,  uploaded the image to my own docker hub registry with `docker push rmpasswd/metabase-taxi:1.0`.
 2. From a cloud VM(because I will not run my lapto 24/7), I simply logged in again (because I'll be pulling from my private registry) and `sudo docker run -d -p 3000:3000 --name metabase rmpasswd/metabase-taxi:1.0`
 3. todo: metabase takes up 1GB+ memory, allocate bigger machine
 4. todo: reverse proxy to serve different ports, metabase with other apps, in same VM.
